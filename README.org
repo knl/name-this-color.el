@@ -1,0 +1,61 @@
+#+TITLE: name-this-color.el
+#+AUTHOR: Nikola Knezevic
+#+EMAIL: knl@soba143.net
+
+Match RGB codes (color codes, HTML colors) to names easily and precisely.
+
+Color names and shades are taken from [[http://chir.ag/projects/ntc/][Name that Color JavaScript]] by Chirag Mehta
+and [[http://www.color-blindness.com/color-name-hue/][Color Name & Hue]] by Colblindor.
+
+* Installation
+
+It's available on [[http://melpa.milkbox.net/][Melpa]]:
+
+#+BEGIN_EXAMPLE
+M-x package-install name-this-color
+#+END_EXAMPLE
+
+Or you can just dump =name-this-color.el= in your load path somewhere.
+
+* Using in a package
+
+Add this to the big comment block at the top:
+
+#+BEGIN_EXAMPLE
+;; Package-Requires: ((name-this-color "0.1.0"))
+#+END_EXAMPLE
+
+* Functions
+** =name-this-color (code)=
+
+ Returns the name of the color represented by color code or the name of the
+closest alternative.
+
+=code= should be a string naming a color (for example, "white") or a string
+specifying a color's RGB components (for example, "#ff12ec" or "#fff").
+
+#+BEGIN_SRC cl
+(name-this-color "#f3f3f3")      ; "White Smoke"
+(name-this-color "#chucknorris") ; "Black"
+(name-this-color "ff12ec")       ; "Magenta"
+#+END_SRC
+
+** =shade-this-color (code)=
+Returns the shade of the color represented by color code or the shade of the
+closest alternative.
+
+Shade could be one of the following: Red, Orange, Brown, Yellow, Green, Blue,
+Violet, Gray, or White.
+
+=code= should be a string naming a color (for example, "white") or a string
+specifying a color's RGB components (for example, "#ff12ec" or "#fff").
+
+#+BEGIN_SRC cl
+(shade-this-color "#f3f3f3")      ; "White"
+(shade-this-color "#chucknorris") ; "Black"
+(shade-this-color "ff12ec")       ; "Violet"
+#+END_SRC
+
+* Changelist
+** 0.1.0
+- Initial code drop
