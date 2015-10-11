@@ -6,7 +6,7 @@
 ;; Created: 2015-10-10
 ;; Version: 0.1
 ;; URL: https://github.com/kne/name-this-color.el
-;; Package-Requires: ((dash "2.11.0") (s "1.7.0"))
+;; Package-Requires: ((emacs "24") (cl-lib "0.5") (dash "2.11.0") (s "1.7.0"))
 ;; Keywords: lisp, color, hex, rgb, shade, name
 
 ;; This file is not part of GNU Emacs.
@@ -49,7 +49,7 @@
 ;;
 ;;; Code:
 
-(require 'cl)
+(require 'cl-lib)
 (require 'color)
 (require 'dash)
 (require 's)
