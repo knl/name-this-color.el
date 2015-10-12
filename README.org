@@ -22,11 +22,11 @@ Or you can just dump =name-this-color.el= in your load path somewhere.
 Add this to the big comment block at the top:
 
 #+BEGIN_EXAMPLE
-;; Package-Requires: ((name-this-color "0.1.0"))
+;; Package-Requires: ((name-this-color "0.2.0"))
 #+END_EXAMPLE
 
 * Functions
-** =name-this-color (code)=
+** =ntc-name-this-color (code)=
 
  Returns the name of the color represented by color code or the name of the
 closest alternative.
@@ -35,12 +35,12 @@ closest alternative.
 specifying a color's RGB components (for example, "#ff12ec" or "#fff").
 
 #+BEGIN_SRC cl
-(name-this-color "#f3f3f3")      ; "White Smoke"
-(name-this-color "#chucknorris") ; "Black"
-(name-this-color "ff12ec")       ; "Magenta"
+(ntc-name-this-color "#f3f3f3")      ; "White Smoke"
+(ntc-name-this-color "#chucknorris") ; "Black"
+(ntc-name-this-color "ff12ec")       ; "Magenta"
 #+END_SRC
 
-** =shade-this-color (code)=
+** =ntc-shade-this-color (code)=
 Returns the shade of the color represented by color code or the shade of the
 closest alternative.
 
@@ -51,11 +51,13 @@ Violet, Gray, or White.
 specifying a color's RGB components (for example, "#ff12ec" or "#fff").
 
 #+BEGIN_SRC cl
-(shade-this-color "#f3f3f3")      ; "White"
-(shade-this-color "#chucknorris") ; "Black"
-(shade-this-color "ff12ec")       ; "Violet"
+(ntc-shade-this-color "#f3f3f3")      ; "White"
+(ntc-shade-this-color "#chucknorris") ; "Black"
+(ntc-shade-this-color "ff12ec")       ; "Violet"
 #+END_SRC
 
 * Changelist
+** 0.2.0
+- Change the API, prefix all methods with =ntc-=, per [[https://www.gnu.org/software/emacs/manual/html_node/elisp/Coding-Conventions.html][elisp coding guidelines]]
 ** 0.1.0
 - Initial code drop
