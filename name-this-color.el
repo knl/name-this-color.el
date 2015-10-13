@@ -6,7 +6,7 @@
 ;; Created: 2015-10-10
 ;; Version: 0.2.0
 ;; URL: https://github.com/knl/name-this-color.el
-;; Package-Requires: ((emacs "24") (cl-lib "0.5") (dash "2.11.0") (s "1.7.0"))
+;; Package-Requires: ((emacs "24") (cl-lib "0.5") (dash "2.11.0"))
 ;; Keywords: lisp, color, hex, rgb, shade, name
 
 ;; This file is not part of GNU Emacs.
@@ -52,7 +52,6 @@
 (require 'cl-lib)
 (require 'color)
 (require 'dash)
-(require 's)
 
 (cl-defstruct (ntc--struct (:type vector :named))
   (code :read-only t)
@@ -1718,7 +1717,7 @@
   (let ((CODE (upcase color-code)))
     (cond
      ((= (length CODE) 7) CODE)
-     ((and (= (length CODE) 6) (s-matches? "^[0-9A-F]+$" CODE)) (s-prepend "#" CODE))
+     ((and (= (length CODE) 6) (string-match-p "^[0-9A-F]+$" CODE)) (concat "#" CODE))
      (t CODE))))
 
 
