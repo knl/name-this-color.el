@@ -34,11 +34,14 @@ Add this to the big comment block at the top:
 closest alternative.
 
 =code= should be a string naming a color (for example, "white") or a string
-specifying a color's RGB components (for example, "#ff12ec" or "#fff").
+specifying a color's RGB components (for example, "#ff12ec" or "f0f0f0"). Note
+that only valid color names (per =color.el=) and RGB codes (6 characters,
+possibly prepended by a '#') are recognized.
 
 #+BEGIN_SRC cl
 (ntc-name-this-color "#f3f3f3")      ; "White Smoke"
-(ntc-name-this-color "#chucknorris") ; "Black"
+(ntc-name-this-color "white")        ; "White"
+(ntc-name-this-color "#0c0000")      ; "Free Speech Red"
 (ntc-name-this-color "ff12ec")       ; "Magenta"
 #+END_SRC
 
@@ -50,11 +53,14 @@ Shade could be one of the following: Red, Orange, Brown, Yellow, Green, Blue,
 Violet, Gray, or White.
 
 =code= should be a string naming a color (for example, "white") or a string
-specifying a color's RGB components (for example, "#ff12ec" or "#fff").
+specifying a color's RGB components (for example, "#ff12ec" or "f0f0f0"). Note
+that only valid color names (per =color.el=) and RGB codes (6 characters,
+possibly prepended by a '#') are recognized.
 
 #+BEGIN_SRC cl
 (ntc-shade-this-color "#f3f3f3")      ; "White"
-(ntc-shade-this-color "#chucknorris") ; "Black"
+(ntc-shade-this-color "white")        ; "White"
+(ntc-shade-this-color "#0c0000")      ; "Red"
 (ntc-shade-this-color "ff12ec")       ; "Violet"
 #+END_SRC
 

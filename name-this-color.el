@@ -1713,36 +1713,12 @@
   (color-cie-de2000 (apply 'color-srgb-to-lab (color-name-to-rgb color-code-1))
                     (apply 'color-srgb-to-lab (color-name-to-rgb color-code-2))))
 
-(defun ntc--zero-non-hex (char)
-  "Returns char if it is a hex digit, otherwise 0"
-  (cond
-   ((s-match "[0-9a-fA-F]" char) char)
-   (t "0")))
-
-(defun ntc--ns4-format (code)
-  "Formats the color code string as described here:
-https://stackoverflow.com/questions/8318911/why-does-html-think-chucknorris-is-a-color
-
-  This provides the clearer interpretation of the color"
-  (let* ((alist (s-split "" code t))
-         (hexonly (s-join "" (-map 'ntc--zero-non-hex alist)))
-         (mul3len (* 3 (ceiling (length hexonly) 3)))
-         (padded (s-pad-right mul3len "0" hexonly))
-         (R (s-left (/ mul3len 3) padded))
-         (B (s-right (/ mul3len 3) padded))
-         (G (s-chop-prefix R (s-chop-suffix B padded)))
-         (R2 (s-left 2 R))
-         (B2 (s-left 2 B))
-         (G2 (s-left 2 B)))
-    (s-join "" (list "#" R2 G2 B2))))
-
 (defun ntc--format-color-code (color-code)
   "Properly formats the color code: uppercase and with # in front"
   (let ((CODE (upcase color-code)))
     (cond
      ((= (length CODE) 7) CODE)
      ((and (= (length CODE) 6) (s-matches? "^[0-9A-F]+$" CODE)) (s-prepend "#" CODE))
-     ((not (color-name-to-rgb CODE)) (ntc--ns4-format CODE))
      (t CODE))))
 
 
