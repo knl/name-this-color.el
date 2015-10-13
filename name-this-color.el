@@ -1704,18 +1704,14 @@
                       (make-ntc--struct :code "#CDD5D5" :name "Zumthor" :shade "Grey")))
 
 (defun ntc--compute-difference (color-code-1 color-code-2)
-  "Computes CIE76 difference between two given colors.
+  "Computes CIEDE2000 difference between two given colors, provided by color.el.
 
   Colors should be either hex rgb codes or simple HTML color names (recognized
   by color.el).
 
-  Relies on description from https://en.wikipedia.org/wiki/Color_difference"
-  (let* ((Lsb1 (apply 'color-srgb-to-lab (color-name-to-rgb color-code-1)))
-         (Lsb2 (apply 'color-srgb-to-lab (color-name-to-rgb color-code-2)))
-         (Ldiff (- (nth 0 Lsb2) (nth 0 Lsb1)))
-         (adiff (- (nth 1 Lsb2) (nth 1 Lsb1)))
-         (bdiff (- (nth 2 Lsb2) (nth 2 Lsb1))))
-    (sqrt (+ (expt Ldiff 2) (expt adiff 2) (expt bdiff 2)))))
+  More info: https://en.wikipedia.org/wiki/Color_difference"
+  (color-cie-de2000 (apply 'color-srgb-to-lab (color-name-to-rgb color-code-1))
+                    (apply 'color-srgb-to-lab (color-name-to-rgb color-code-2))))
 
 (defun ntc--zero-non-hex (char)
   "Returns char if it is a hex digit, otherwise 0"
