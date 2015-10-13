@@ -2,6 +2,8 @@
 #+AUTHOR: Nikola Knezevic
 #+EMAIL: knl@soba143.net
 
+[[http://melpa.org/#/name-this-color][file:http://melpa.org/packages/name-this-color-badge.svg]]
+
 Match RGB codes (color codes, HTML colors) to names easily and precisely.
 
 Color names and shades are taken from [[http://chir.ag/projects/ntc/][Name that Color JavaScript]] by Chirag Mehta
