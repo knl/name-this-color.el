@@ -5,7 +5,7 @@
 ;; Authors: Nikola Knezevic <knl@soba143.net>
 ;; Created: 2015-10-10
 ;; Version: 0.2.0
-;; URL: https://github.com/kne/name-this-color.el
+;; URL: https://github.com/knl/name-this-color.el
 ;; Package-Requires: ((emacs "24") (cl-lib "0.5") (dash "2.11.0") (s "1.7.0"))
 ;; Keywords: lisp, color, hex, rgb, shade, name
 
